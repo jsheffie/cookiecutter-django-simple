@@ -1,3 +1,4 @@
+{%- if cookiecutter.use_postgres == 'y' %}
 # PostgreSQL
 # ------------------------------------------------------------------------------
 POSTGRES_HOST=postgres
@@ -5,3 +6,4 @@ POSTGRES_PORT=5432
 POSTGRES_DB={{ cookiecutter.project_slug }}
 POSTGRES_USER=!!!SET POSTGRES_USER!!!
 POSTGRES_PASSWORD=!!!SET POSTGRES_PASSWORD!!!
+{%- endif %}
