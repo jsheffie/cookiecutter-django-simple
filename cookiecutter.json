@@ -5,7 +5,7 @@
     "author_name": "Jeff Sheffield",
     "domain_name": "example.com",
     "email": "{{ cookiecutter.author_name.lower() | trim() |replace(' ', '-') }}@{{ cookiecutter.domain_name.lower() | trim() }}",
-    "version": "0.1.0",
+    "version": "0.0.9",
     "use_postgres": "n"
   }
   
