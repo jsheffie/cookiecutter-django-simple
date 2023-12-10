@@ -6,6 +6,7 @@
     "domain_name": "example.com",
     "email": "{{ cookiecutter.author_name.lower() | trim() |replace(' ', '-') }}@{{ cookiecutter.domain_name.lower() | trim() }}",
     "version": "0.0.9",
+    "timezone": "UTC",
     "use_postgres": "n"
   }
   
