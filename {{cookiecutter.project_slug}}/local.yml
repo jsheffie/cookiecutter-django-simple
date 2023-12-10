@@ -1,0 +1,41 @@
+version: '3'
+
+{%- if cookiecutter.use_postgres == 'y' %}
+volumes:
+  {{ cookiecutter.project_slug }}_local_postgres_data: {}
+  {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
+{%- endif %}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: {{ cookiecutter.project_slug }}_local_django
+    container_name: {{ cookiecutter.project_slug }}_local_django
+{%- if cookiecutter.use_postgres == 'y' %}
+    depends_on:
+      - postgres
+{%- endif %}
+    volumes:
+      - .:/app:z
+    env_file:
+      - ./.envs/.local/.django
+    {% if cookiecutter.use_postgres == 'y' %}- ./.envs/.local/.postgres{% endif %}
+    ports:
+      - '8000:8000'
+    command: /start
+
+{%- if cookiecutter.use_postgres == 'y' %}
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_postgres
+    container_name: {{ cookiecutter.project_slug }}_local_postgres
+    volumes:
+      - {{ cookiecutter.project_slug }}_local_postgres_data:/var/lib/postgresql/data
+      - {{ cookiecutter.project_slug }}_local_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.local/.postgres
+{%- endif %}
