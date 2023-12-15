@@ -2,6 +2,8 @@
 install:
 	pipx run cookiecutter gh:jsheffie/cookiecutter-django-simple
 
+wrokingbranch:
+	pipx run cookiecutter gh:jsheffie/cookiecutter-django-simple --checkout jds-1-make-this-work-with-postgres
 
 .PHONY: clean
 clean:
