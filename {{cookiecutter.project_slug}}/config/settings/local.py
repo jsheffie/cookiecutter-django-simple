@@ -23,3 +23,10 @@ CACHES = {
         "LOCATION": "",
     }
 }
+
+# django-extensions
+# ------------------------------------------------------------------------------
+# https://django-extensions.readthedocs.io/en/latest/installation_instructions.html#configuration
+{%- if cookiecutter.use_django_extensions == 'y' %}
+INSTALLED_APPS += ["django_extensions"]
+{%- endif %}

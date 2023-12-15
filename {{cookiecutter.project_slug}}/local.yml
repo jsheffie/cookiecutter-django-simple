@@ -2,8 +2,8 @@ version: '3'
 
 {%- if cookiecutter.use_postgres == 'y' %}
 volumes:
-  {{ cookiecutter.project_slug }}_local_postgres_data: {}
-  {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
+    postgres_data: {}
+    postgres_data_backups: {}
 {%- endif %}
 
 services:
@@ -11,8 +11,8 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-    image: {{ cookiecutter.project_slug }}_local_django
-    container_name: {{ cookiecutter.project_slug }}_local_django
+    image: {{ cookiecutter.project_slug }}_django
+    container_name: {{ cookiecutter.project_slug }}_django
 {%- if cookiecutter.use_postgres == 'y' %}
     depends_on:
       - postgres
@@ -35,10 +35,10 @@ services:
       context: .
       dockerfile: ./compose/local/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_postgres
-    container_name: {{ cookiecutter.project_slug }}_local_postgres
+    container_name: {{ cookiecutter.project_slug }}_postgres
     volumes:
-      - {{ cookiecutter.project_slug }}_local_postgres_data:/var/lib/postgresql/data
-      - {{ cookiecutter.project_slug }}_local_postgres_data_backups:/backups
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
 {%- endif %}
