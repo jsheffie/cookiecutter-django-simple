@@ -9,6 +9,7 @@ psycopg[c]==3.1.14  # https://github.com/psycopg/psycopg
 # Django
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.use_django_extensions == 'y' %}
+Werkzeug[watchdog]==3.0.1 # https://github.com/pallets/werkzeug
 django-extensions==3.2.3  # https://github.com/django-extensions/django-extensions
 {%- endif %}
 
