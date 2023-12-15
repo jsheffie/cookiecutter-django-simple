@@ -10,6 +10,5 @@
     "use_postgres": "n",
     "_postgresql_version": "15",
     "use_django_extensions": "n"
-
   }
   
