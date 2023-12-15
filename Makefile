@@ -12,7 +12,8 @@ install:
 
 workingbranch:
 	#	make workingbranch branchname="jds-1-make-this-work-with-postgres"
-	pipx run cookiecutter gh:jsheffie/cookiecutter-django-simple --checkout $(branchname)
+	# pipx run cookiecutter gh:jsheffie/cookiecutter-django-simple --checkout $(branchname)
+	pipx run cookiecutter gh:jsheffie/cookiecutter-django-simple --checkout $(shell git branch --show-current)
 
 
 .PHONY: clean
