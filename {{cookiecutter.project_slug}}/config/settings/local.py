@@ -30,3 +30,6 @@ CACHES = {
 {%- if cookiecutter.use_django_extensions == 'y' %}
 INSTALLED_APPS += ["django_extensions"]
 {%- endif %}
+{%- if cookiecutter.use_django_bootstrap5 == 'y' %}
+INSTALLED_APPS += ["django_bootstrap5"]
+{%- endif %}
