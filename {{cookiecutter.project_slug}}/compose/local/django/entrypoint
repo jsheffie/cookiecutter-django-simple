@@ -5,7 +5,7 @@ set -o pipefail
 set -o nounset
 
 {%- if cookiecutter.use_postgres == 'n' %}
-echo "Using the SQLite database. No need to wait for it..."
+echo "Using the SQLite database."
 {%- endif %}
 
 {%- if cookiecutter.use_postgres == 'y' %}
