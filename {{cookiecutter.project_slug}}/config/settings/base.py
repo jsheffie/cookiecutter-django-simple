@@ -2,8 +2,8 @@
 Django settings for {{ cookiecutter.project_slug}} project.
 
 For more information on this configuration, see
-https://docs.djangoproject.com/en/5.0/topics/settings/
-https://docs.djangoproject.com/en/5.0/ref/settings/
+https://docs.djangoproject.com/en/5.2/topics/settings/
+https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
@@ -26,8 +26,6 @@ TIME_ZONE = "{{ cookiecutter.timezone }}"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = "en-us"
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#site-id
-SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
 USE_I18N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
@@ -90,6 +88,7 @@ TEMPLATES = [
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
+                "django.template.context_processors.i18n",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
@@ -97,10 +96,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "config.wsgi.application"
-
 # Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {

@@ -10,7 +10,7 @@ Cookiecutter Django Simple is inspired by [Cookiecutter Django](https://github.c
 <br>With the Goal of being to quickly set up a [isolated](https://12factor.net/dependencies) django env for:
 
 - getting down to the business or writing code strait away
-- Learning: maybe the [django tutorial](https://docs.djangoproject.com/en/5.0/intro/tutorial01/) for example ( you just need docker )
+- Learning: maybe the [django tutorial](https://docs.djangoproject.com/en/5.2/intro/tutorial01/) for example ( you just need docker )
 - experimenting with [community packages](https://djangopackages.org/) in a controlled scaled down environment.
 
 
@@ -29,6 +29,9 @@ Cookiecutter Django Simple is inspired by [Cookiecutter Django](https://github.c
 
 
 ```bash
-$ pipx run cookiecutter gh:jsheffie/cookiecutter-django-simple
+# Preferred (fast)
+$ uvx cookiecutter gh:jsheffie/cookiecutter-django-simple
 
+# Also works
+$ pipx run cookiecutter gh:jsheffie/cookiecutter-django-simple
 ```
